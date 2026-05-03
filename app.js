@@ -8,7 +8,18 @@ app.use('/tasks', taskRoutes);
 
 // Feature 1: Homepage
 app.get('/', (req, res) => {
-    res.send("DevOps Demo App Running Successfully");
+    res.send(`
+        <html>
+            <head>
+                <title>DevOps App</title>
+            </head>
+            <body>
+                <h1>🚀 DevOps Demo App Running Successfully</h1>
+                <p>Your Docker container is working!</p>
+                <a href="/tasks">View Tasks</a>
+            </body>
+        </html>
+    `);
 });
 
 const PORT = 3000;
