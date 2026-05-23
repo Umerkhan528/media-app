@@ -1,25 +1,18 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 
 app.use(express.json());
 
+// Serve static files
+app.use(express.static(path.join(__dirname, 'public')));
+
 const taskRoutes = require('./routes/tasks');
 app.use('/tasks', taskRoutes);
-// Feature 1: Homepage
+
+// Homepage route
 app.get('/', (req, res) => {
-    res.send(`
-        <html>
-            <head>
-                <title>DevOps App</title>
-            </head>
-            <body>
-                <h1>🚀 DevOps Demo App Running Successfully</h1>
-                <p>Your Docker container is working!</p>
-                <a href="/tasks">View Tasks</a>
-                <a href="/tasks">Task 1</a>
-            </body>
-        </html>
-    `);
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 const PORT = 3000;
