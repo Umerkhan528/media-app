@@ -5,7 +5,6 @@ app.use(express.json());
 
 const taskRoutes = require('./routes/tasks');
 app.use('/tasks', taskRoutes);
-
 // Feature 1: Homepage
 app.get('/', (req, res) => {
     res.send(`
@@ -17,6 +16,7 @@ app.get('/', (req, res) => {
                 <h1>🚀 DevOps Demo App Running Successfully</h1>
                 <p>Your Docker container is working!</p>
                 <a href="/tasks">View Tasks</a>
+                <a href="/tasks">Task 1</a>
             </body>
         </html>
     `);
